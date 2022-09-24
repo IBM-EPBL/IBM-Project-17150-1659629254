@@ -1,0 +1,69 @@
+
+//Done by Abirami R CSE'A'
+
+#include "LiquidCrystal.h"
+LiquidCrystal lcd(8,9,4,5,6,7);
+
+int trigPin = 11;    
+int echoPin = 12;    
+int LED = 10;
+const int buzzer = 13;
+long duration, cm, inches;
+ 
+void setup() {
+    lcd.begin(16,2);
+
+  
+  Serial.begin (9600);
+  
+  pinMode(trigPin, OUTPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(buzzer,OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+ 
+void loop() {
+  
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+ 
+  
+  pinMode(echoPin, INPUT);
+  duration = pulseIn(echoPin, HIGH);
+ 
+  
+  cm = (duration/2) / 29.1;     
+  inches = (duration/2) / 74;   
+  
+  if(cm<150)
+  {
+    
+  
+    lcd.clear();
+    lcd.print("    Alarm ON!");
+    
+    digitalWrite(LED, HIGH);
+    delay(250);
+    digitalWrite(LED, LOW);
+    delay(250);
+    digitalWrite(LED, HIGH);
+    
+    tone(buzzer, 1000); 
+    delay(1000);        
+    
+  }
+  else
+  {  
+    lcd.clear();
+    digitalWrite(LED, LOW);
+    lcd.print("   Alarm OFF!");
+    
+    noTone(buzzer);     
+    delay(1000); 
+  }
+  
+  delay(250);
+}
