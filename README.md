@@ -6,7 +6,9 @@ Sometimes elderly people forget to take their medicine at the correct time. They
 
 •	GitHub link: 
 https://github.com/IBM-EPBL/IBM-Project-17150-1659629254
+
 •	Application link:
 https://drive.google.com/file/d/1fzsf45YJNHOqsYw7GPvkA88bO5Dl_1ln/view?usp=sharing
+
 •	Demo link:
 https://drive.google.com/file/d/1K8V8Dy-U8oehx1yVnESJDoYSEqUmuGXT/view?usp=drive_web
